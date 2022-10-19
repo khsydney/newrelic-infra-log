@@ -5,3 +5,68 @@ logs:
     # Basic tailing of a file
   - name: syslog
     file: /var/log/messages
+    attributes:
+      logtype: syslog
+      region: thai-bkk-01
+      team: devops
+#   - name: example-log-two
+#     file: /var/log/example-two.log # Path to another single log file
+#       attributes:
+#         logtype: example
+#         region: example-us-02
+#         team: A-team
+#   - name: docker-logs
+#     file: /var/lib/docker/containers/*/*.log # Path to multiple folders and files
+
+#   # Example of 'systemd' source (Linux only)
+#   - name: systemd-example
+#     systemd: cupsd
+
+#   # Examples of 'syslog' source, one per protocol
+#   # TCP network socket
+#   - name: syslog-tcp-test
+#     syslog:
+#       uri: tcp://0.0.0.0:5140 # Use the tcp://LISTEN_ADDRESS:PORT format
+#       parser: rfc5424 # Default syslog parser is rfc3164
+#   # UDP network socket
+#   - name: syslog-udp-test
+#     syslog:
+#       uri: udp://0.0.0.0:6140 # Use the udp://LISTEN_ADDRESS:PORT format
+#     max_line_kb: 35
+
+#   # Paths for Unix sockets are defined by combining protocol and path:
+#   # unix_udp:// + /path/socket - for example, unix_udp:///tmp/socket
+#   # Unix TCP domain socket
+#   - name: syslog-unix-tcp-test
+#     syslog:
+#       uri: unix_tcp:///var/unix-tcp-socket-test
+#       unix_permissions: 0666 # Default is 0644. Change at your own risk
+#   # Unix UDP domain socket
+#   - name: syslog-unix-udp-test
+#     syslog:
+#       uri: unix_udp:///var/unix-udp-socket-test
+#       parser: rfc5424
+
+#   # Examples of 'tcp' source for formats 'none' and 'json'
+#   - name: tcp-simple-test
+#     tcp:
+#       uri: tcp://0.0.0.0:1234 # Use the tcp://LISTEN_ADDRESS:PORT format
+#       format: none # Raw text - this is default for 'tcp'
+#       separator: \t # String for separating raw text entries
+#     attributes: # You can add custom attributes to any source of logs
+#       tcpFormat: none
+#       someOtherAttribute: associatedValue
+#     max_line_kb: 32
+#   - name: tcp-json-test
+#     tcp:
+#       uri: tcp://0.0.0.0:2345 # Use the tcp://LISTEN_ADDRESS:PORT format
+#       format: json
+#     attributes:
+#       tcpFormat: json
+#       yetAnotherAttribute: 12345
+
+#   # Example of Fluent Bit configuration import
+#   - name: fluentbit-import
+#     fluentbit:
+#       config_file: /path/to/fluentbit.config
+#       parsers_file: /path/to/fluentbit/parsers.conf
